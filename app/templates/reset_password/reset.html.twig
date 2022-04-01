@@ -1,12 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('auth') }}
+{% endblock %}
+
+{% block title %}Reset your password
+{% endblock %}
 
 {% block body %}
-    <h1>Reset your password</h1>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
+
+	<div class="mainblock text-center">
+		<main class="form-signin">
+			{{ form_start(resetForm) }}
+
+			<h1 class="h3 mb-3 fw-normal">Reset your password</h1>
+
+			{{ form_row(resetForm.plainPassword) }}
+
+			<div class="text-danger">
+				{{ form_errors(resetForm.plainPassword) }}
+			</div>
+
+
+			<button class="w-100 btn btn-lg btn-primary" type="submit">
+				Reset password</button>
+			{{ form_end(resetForm) }}
+		</main>
+	</div>
 {% endblock %}
