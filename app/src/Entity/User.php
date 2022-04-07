@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -19,27 +21,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\Email(message: 'The email "{{ value }}" is not a valid email.')]
+    #[Assert\NotBlank(message: 'Please enter an email.')]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(message: 'Please enter a password.')]
+    // #[SecurityAssert\UserPassword(message: 'Invalid password.')]
     private $password;
 
     #[ORM\Column(type: 'boolean')]
+    #[Assert\NotNull]
     private $isVerified = false;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'Please enter your username.')]
     private $username;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Assert\Url(message: 'The url "{{ value }}" is not a valid url.')]
     private $imageUrl;
 
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\NotNull]
     private $modifiedAt;
 
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\NotNull]
     private $createdAt;
 
     public function getId(): ?int
