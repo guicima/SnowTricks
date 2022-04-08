@@ -1,0 +1,9 @@
+App\Entity\User:
+    user_user:
+        username: user_user
+        email: "john\\@doe.com"
+        roles: '[]'
+        password: "\\$2y\\$10\\$oluBuj0ClW5boIMDfslksOWT.LzAsy1eTtdwY2BmAOHcA4H6Xwbui"
+        isVerified: true
+        createdAt: <(new \DateTimeImmutable('2020-02-02'))>
+        modifiedAt: <(new \DateTimeImmutable('2020-02-02'))>

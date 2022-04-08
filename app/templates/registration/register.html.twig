@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('auth') }}
+{% endblock %}
+
+{% block body %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+
+
+	<div class="mainblock text-center">
+		<main class="form-signin">
+			{{ form_start(registrationForm) }}
+
+			{# <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> #}
+			<h1 class="h3 mb-3 fw-normal">Register</h1>
+
+			<div class="form-floating my-1">
+				{{ form_widget(registrationForm.email) }}
+				{{ form_label(registrationForm.email) }}
+				<div class="text-danger">
+					{{ form_errors(registrationForm.email) }}
+				</div>
+			</div>
+			<div class="form-floating my-1">
+				{{ form_widget(registrationForm.username) }}
+				{{ form_label(registrationForm.username) }}
+				<div class="text-danger">
+					{{ form_errors(registrationForm.username) }}
+				</div>
+			</div>
+			<div class="form-floating my-1">
+				{{ form_widget(registrationForm.plainPassword) }}
+				{{ form_label(registrationForm.plainPassword) }}
+				<div class="text-danger">
+					{{ form_errors(registrationForm.plainPassword) }}
+				</div>
+			</div>
+
+			<div class="checkbox mt-5 mb-3">
+				<label>
+					{{ form_widget(registrationForm.agreeTerms) }}
+					Agree terms
+				</label>
+			</div>
+
+			<button class="w-100 btn btn-lg btn-primary" type="submit">
+				Register</button>
+			{{ form_end(registrationForm) }}
+		</main>
+	</div>
+{% endblock %}

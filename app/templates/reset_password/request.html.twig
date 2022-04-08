@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('auth') }}
+{% endblock %}
+
+{% block title %}Reset your password
+{% endblock %}
+
+{% block body %}
+	{% for flash_error in app.flashes('reset_password_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+
+	<div class="mainblock text-center">
+		<main class="form-signin">
+			{{ form_start(requestForm) }}
+			<h1 class="h3 mb-3 fw-normal">Reset your password</h1>
+
+			<div class="form-floating my-1">
+				{{ form_widget(requestForm.email) }}
+				{{ form_label(requestForm.email) }}
+				<div class="text-danger">
+					{{ form_errors(requestForm.email) }}
+				</div>
+			</div>
+
+			<div class="my-5">
+				<small>
+					Enter your email address and we will send you a link to reset your password.
+				</small>
+			</div>
+
+			<button class="w-100 btn btn-lg btn-primary" type="submit">Send password reset email</button>
+			{{ form_end(requestForm) }}
+		</main>
+	</div>
+{% endblock %}
