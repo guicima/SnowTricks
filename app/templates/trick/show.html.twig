@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Trick
+{% endblock %}
+
+{% block body %}
+	<div class="position-relative overflow-hidden p-3 p-md-5  text-center bg-light">
+		<div class="col-md-5 p-lg-5 mx-auto my-5" style="z-index: 1;position: relative;">
+			<h1 class="display-4 fw-normal">{{ trick.name }}</h1>
+			<p class="lead fw-normal">{{ trick.description }}</p>
+			{# <a class="btn btn-outline-secondary" href="#">Coming soon</a> #}
+		</div>
+		<img src={{ asset('/uploads/images/' ~ trick.images.first.name)}} style="position: absolute;left: 0;top: 0;width: 100%;transform: translateY(-50%); opacity: .5"></img>
+	<div class="product-device shadow-sm d-none d-md-block"></div>
+	<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+<div class="d-flex justify-content-center">
+	{% for image in trick.getImages %}
+		<div class="card m-3 " style="width: 150px">
+			{% if image.type is same as 'video' %}
+
+				<video controls width="250" height="150" class="card-img">
+					<source src="{{asset('/uploads/images/' ~ image.name) }}" type="video/mp4">
+				</video>
+
+			{% else %}
+				<div style="background: center / cover no-repeat url('{{asset('/uploads/images/' ~ image.name) }}'); height: 100%; width: 100%;"></div>
+			{% endif %}
+
+		</div>
+	{% else %}
+		<p class="text-center m-5">No image</p>
+	{% endfor %}
+	<a class="card m-3 d-flex justify-content-center align-content-center" style="width: 150px; height: 150px" href="{{ path('app_trick_edit', {'slug': trick.slug}) }}">
+		<i class="fa-solid fa-plus"></i>
+
+	</a>
+</div>
+
+<h1>Trick</h1>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<th>Id</th>
+			<td>{{ trick.id }}</td>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<td>{{ trick.name }}</td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td>{{ trick.description }}</td>
+		</tr>
+		<tr>
+			<th>Theme</th>
+			<td>{{ trick.theme }}</td>
+		</tr>
+		<tr>
+			<th>ModifiedAt</th>
+			<td>{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+		</tr>
+		<tr>
+			<th>CreatedAt</th>
+			<td>{{ trick.createdAt ? trick.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+		</tr>
+	</tbody>
+</table>
+
+<a href="{{ path('app_home_page') }}">back to list</a>
+
+<a href="{{ path('app_trick_edit', {'slug': trick.slug}) }}">edit</a>
+
+{{ include('trick/_delete_form.html.twig') }}{% endblock %}

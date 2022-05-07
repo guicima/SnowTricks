@@ -29,7 +29,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
-    #[Assert\NotBlank(message: 'Please enter a password.')]
+    // #[Assert\NotBlank(message: 'Please enter a password.')]
     // #[SecurityAssert\UserPassword(message: 'Invalid password.')]
     private $password;
 
@@ -46,11 +46,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $imageUrl;
 
     #[ORM\Column(type: 'datetime_immutable')]
-    #[Assert\NotNull]
+    // #[Assert\NotNull]
     private $modifiedAt;
 
     #[ORM\Column(type: 'datetime_immutable')]
-    #[Assert\NotNull]
+    // #[Assert\NotNull]
     private $createdAt;
 
     public function getId(): ?int

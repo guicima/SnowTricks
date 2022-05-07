@@ -1,20 +1,97 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomePageController!{% endblock %}
+{% block title %}Hello HomePageController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+		@media(min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Documents/SnowTricks/app/src/Controller/HomePageController.php'|file_link(0) }}">src/Controller/HomePageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Documents/SnowTricks/app/templates/home_page/index.html.twig'|file_link(0) }}">templates/home_page/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<div class="example-wrapper">
+		<section class="py-5 text-center container">
+			<div class="row py-lg-5">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<h1 class="fw-light">Album example</h1>
+					<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+					<p>
+						<a href="#" class="btn btn-primary my-2">Main call to action</a>
+						<a href="#" class="btn btn-secondary my-2">Secondary action</a>
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="album py-5 bg-light">
+			<div class="container">
+
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+					{% for trick in tricks %}
+						<div class="col">
+							<div class="card shadow-sm">
+
+								<div id="carouselExampleControls" class="carousel slide bd-placeholder-img card-img-top bg-dark" width="100%" height="225" data-bs-ride="carousel">
+									<div class="carousel-inner" height="225">
+
+										{% for image in trick.images %}
+											<div class="carousel-item {% if loop.first %}active{% endif %}" height="225">
+												<img src="{{ asset('/uploads/images/' ~ image.name) }}" class="d-block  mx-auto" height="225" alt="...">
+											</div>
+										{% endfor %}
+									</div>
+									<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+
+								<div class="card-body">
+									<a class="card-text text-decoration-none text-body" href="{{ path('app_trick_show', {'slug': trick.slug}) }}">
+										<b>{{ trick.name }}</b>
+									</a>
+									<p class="card-text">{{ trick.description }}</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<small class="text-muted">{{ trick.getModifiedAt.diffForHumans() }}</small>
+										{% if is_granted('ROLE_USER') %}
+											<form method="post" action="{{ path('app_trick_delete', {'slug': trick.slug}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+												<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.slug) }}">
+												<div class="btn-group">
+													<a type="button" class="btn btn-sm btn-outline-warning" href="{{ path('app_trick_edit', {'slug': trick.slug}) }}">
+														<i class="fa-solid fa-pen-to-square"></i>
+													</a>
+													<button class="btn btn-sm btn-outline-danger">
+														<i class="fa-solid fa-trash-can"></i>
+													</button>
+												</div>
+											</form>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</div>
+					{% else %}
+						<p>Pas de tricks</p>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
