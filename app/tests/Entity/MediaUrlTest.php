@@ -2,23 +2,23 @@
 
 namespace App\Test\Entity;
 
-use App\Entity\MediaUrl;
+use App\Entity\Image;
 use App\Entity\Trick;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class MediaUrlTest extends KernelTestCase
+class ImageTest extends KernelTestCase
 {
 
-    public function getEntity(): MediaUrl
+    public function getEntity(): Image
     {
-        return (new MediaUrl())
-            ->setTrickId(new Trick())
-            ->setUrl('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-            ->setMediaType('video');
+        return (new Image())
+            ->setTrick(new Trick())
+            ->setName('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+            ->setType('video');
     }
 
-    public function assertHasErrors(MediaUrl $entity, int $errorNumber)
+    public function assertHasErrors(Image $entity, int $errorNumber)
     {
         self::bootKernel();
         $errors = $this->getContainer()->get('validator')->validate($entity);
@@ -26,9 +26,9 @@ class MediaUrlTest extends KernelTestCase
     }
 
     // test valid media url
-    public function testValidMediaUrl()
+    public function testValidImage()
     {
-        $mediaUrl = $this->getEntity();
-        $this->assertHasErrors($mediaUrl, 0);
+        $image = $this->getEntity();
+        $this->assertHasErrors($image, 0);
     }
 }
