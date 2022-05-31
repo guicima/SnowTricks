@@ -27,7 +27,7 @@ class LoginControllerTest extends WebTestCase
         $databaseTool->loadAliceFixture([__DIR__ . '/users.yaml']);
 
         $crawler = $client->request('GET', '/login');
-        $form = $crawler->selectButton('Sign in')->form();
+        $form = $crawler->selectButton('Se connecter')->form();
         $form['_username'] = 'john@doe.com';
         $form['_password'] = 'password';
         $client->submit($form);
@@ -51,7 +51,7 @@ class LoginControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/login');
-        $this->assertSelectorTextContains('h1', 'Please sign in');
+        $this->assertSelectorTextContains('h1', 'Veuillez vous connecter');
     }
 
     // test logout route

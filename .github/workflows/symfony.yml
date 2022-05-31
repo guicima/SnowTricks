@@ -26,19 +26,6 @@ jobs:
     - name: Copy .env.test.local
       run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
 
-    ## —— Yarn 🐱 ————————————————————————————————————————————————————————————
-    - name: Yarn install
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-        #registry-url: npm.fontawesome.com
-    - run: yarn install
-        #env:
-      #NODE_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
-
-    - name: Yarn build
-      run: yarn run encore production
-
     ## —— Composer —————————————————————————————————————————————————————————————
     - name: Cache Composer packages
       id: composer-cache
@@ -52,6 +39,7 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+    ## —— Create DB ——————————————————————————————————————————————————————————————
     - name: Create and migrate Database
       run: |
         php bin/console doctrine:database:create --env=test

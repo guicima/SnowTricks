@@ -3,7 +3,7 @@
 	{% set isActive = currentUrl == url %}
 
 	<li>
-		<a class="nav-link px-2 {{ isActive ? 'text-secondary' : 'text-white' }}" {% if isActive %} aria-current="page" {% endif %} href="{{ url }}">{{ name }}</a>
+		<a class="nav-link px-2 {{ isActive ? 'text-secondary' : 'text-white' }}" {% if isActive %} aria-current="page" {% endif %} href="{{ url }}">{{ name|trans }}</a>
 	</li>
 {% endmacro %}
 
@@ -15,37 +15,39 @@
 			</a>
 
 			<ul class="nav col-12 col-lg-auto me-lg-3 mb-2 justify-content-center mb-md-0">
-				{{ _self.menuItem('Home', path('app_home_page')) }}
+				{{ _self.menuItem('homepage', path('app_home_page')) }}
 			</ul>
 
 			{# <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-													<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-												</form> #}
+																																																																																														<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+																																																																																													</form> #}
 			{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
 				<div class="dropdown text-end">
 					<a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-						<img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+						<img src="{{ app.user.imageUrl is null ? asset('/images/placeholder.jpg') : asset('/uploads/images/' ~ app.user.imageUrl )}}" alt="mdo" width="32" height="32" class="rounded-circle">
 					</a>
 					<ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
 						<li>
-							<a class="dropdown-item" href="#">New project...</a>
+							<a class="dropdown-item" href="{{ path('app_trick_new') }}">{{ 'tricks.new'|trans }}</a>
 						</li>
+						{% if is_granted('ROLE_ADMIN') %}
+							<li>
+								<a class="dropdown-item" href="{{ path('app_comment_index') }}">{{ 'comments.management'|trans }}</a>
+							</li>
+						{% endif %}
 						<li>
-							<a class="dropdown-item" href="#">Settings</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Profile</a>
+							<a class="dropdown-item" href="{{ path('app_profile') }}">{{ 'profile'|trans }}</a>
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
-							<a class="dropdown-item" href="{{ path('app_logout') }}">Sign out</a>
+							<a class="dropdown-item" href="{{ path('app_logout') }}">{{ 'sign.out'|trans }}</a>
 						</li>
 					</ul>
 				</div>
 			{% else %}
 				<div class="text-end">
-					<a href="{{ path('app_login') }}" class="btn btn-outline-light me-2">Login</a>
-					<a href="{{ path('app_register') }}" class="btn btn-warning">Sign-up</a>
+					<a href="{{ path('app_login') }}" class="btn btn-outline-light me-2">{{ 'sign.in'|trans }}</a>
+					<a href="{{ path('app_register') }}" class="btn btn-warning">{{ 'sign.up'|trans }}</a>
 				</div>
 			{% endif %}
 		</div>

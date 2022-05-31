@@ -1,0 +1,110 @@
+homepage: Accueil
+trick: Figure
+tricks: 
+  new: Nouvelle figure
+  none: Aucune figure
+  edit: Modifier la figure
+  created: La figure a été créée
+  updated: La figure a été mise à jour
+  deleted: La figure a été supprimée
+
+comment: Commentaire
+comments:
+  management: Gestion des commentaires
+  add: Ajouter un commentaire
+  none: Aucun commentaire
+  toComment: Commenter
+  edit: Modifier le commentaire
+
+profile: Profil
+
+please sign in: Veuillez vous connecter
+sign:
+  in: Se connecter
+  up: S'inscrire
+  out: Se déconnecter
+forget password: Mot de passe oublié
+remember me: Se souvenir de moi
+agree: J'accepte les conditions d'utilisation
+
+home:
+  welcome: L'histoire du snowboard Le premier “snurfer”, l’ancêtre du snowboard a été inventé en 1965 par un Américain qui eut l'idée de rassembler deux skis par une corde à l’avant (fou non ?!). La principale caractéristique qui différencie le snurfer du snowboard est le fait que les pieds n’étaient pas attachés à la planche.
+
+image:
+  change: Changer d'image
+  none: Aucune image disponible
+  deleted: Image supprimée
+
+created:
+  at: Créé
+  the: Créé le
+  by: Créé par
+modified:
+  at: Modifié
+  the: Modifié le
+  by: Modifié par
+
+user:
+  name: Nom d'utilisateur
+  user: Utilisateur
+  registered: Inscrit
+  verified: Vérifié
+
+name: Nom
+email: Adresse email
+password: Mot de passe
+text: Texte
+
+yes: Oui
+no: Non
+
+actions:
+  actions: Actions
+  show: Afficher
+  edit: Modifier
+  delete: Supprimer
+  create: Créer
+  update: Mettre à jour
+  send.email: Envoyer l'email
+
+email.sent: Email envoyé
+
+
+delete.confirm: Êtes-vous sûr de vouloir supprimer cet élément ?
+
+back.to.list: Retour à la liste
+
+success: Succès
+info: Information
+warning: Attention
+danger: Danger
+
+account:
+  created: Votre compte a été créé avec succès. Veuillez vérifier votre boîte de réception pour confirmer votre adresse email.
+  verified: Votre compte a été vérifié avec succès.
+
+passwords:
+  reset: Votre mot de passe a été réinitialisé avec succès.
+  changed: Votre mot de passe a été modifié avec succès.
+  to.reset: Réinitialisez votre mot de passe
+  reset.message: Entrez votre adresse email et vous recevrez un email contenant un lien pour réinitialiser votre mot de passe.
+
+Name: Nom
+Description: Description
+Theme: Thème
+Images: Images
+
+Text: Texte
+Created at: Créé le
+Modified at: Modifié le
+
+Email: Adresse email
+Username: Nom d'utilisateur
+Password: Mot de passe
+
+reset.sent.message: Si un compte correspondant à votre adresse email existe, alors un email a été envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+
+link.expire: Ce lien expire dans
+check spam: Si vous ne recevez pas d'email dans les prochaines minutes, vérifiez votre dossier spam ou
+try again: essayez à nouveau
+back.home: Retour à l'accueil

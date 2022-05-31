@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="pcWhXux" resname="homepage">
+        <source>homepage</source>
+        <target>Accueil</target>
+      </trans-unit>
+      <trans-unit id="851RSaR" resname="trick">
+        <source>trick</source>
+        <target>Figure</target>
+      </trans-unit>
+      <trans-unit id="OG5BgII" resname="tricks.new">
+        <source>tricks.new</source>
+        <target>Nouvelle figure</target>
+      </trans-unit>
+      <trans-unit id="gYwdFj4" resname="tricks.none">
+        <source>tricks.none</source>
+        <target>Aucune figure</target>
+      </trans-unit>
+      <trans-unit id="Azm8Ufc" resname="tricks.edit">
+        <source>tricks.edit</source>
+        <target>Modifier la figure</target>
+      </trans-unit>
+      <trans-unit id="IqI68PS" resname="tricks.created">
+        <source>tricks.created</source>
+        <target>La figure a été créée</target>
+      </trans-unit>
+      <trans-unit id="rzATewS" resname="tricks.updated">
+        <source>tricks.updated</source>
+        <target>La figure a été mise à jour</target>
+      </trans-unit>
+      <trans-unit id="P4LOHwc" resname="tricks.deleted">
+        <source>tricks.deleted</source>
+        <target>La figure a été supprimée</target>
+      </trans-unit>
+      <trans-unit id="xEuy.VF" resname="comment">
+        <source>comment</source>
+        <target>Commentaire</target>
+      </trans-unit>
+      <trans-unit id="n2vbcWW" resname="comments.management">
+        <source>comments.management</source>
+        <target>Gestion des commentaires</target>
+      </trans-unit>
+      <trans-unit id="dLxaUFR" resname="comments.add">
+        <source>comments.add</source>
+        <target>Ajouter un commentaire</target>
+      </trans-unit>
+      <trans-unit id="pBFVjf_" resname="comments.none">
+        <source>comments.none</source>
+        <target>Aucun commentaire</target>
+      </trans-unit>
+      <trans-unit id="ZFcVDfy" resname="comments.toComment">
+        <source>comments.toComment</source>
+        <target>Commenter</target>
+      </trans-unit>
+      <trans-unit id="nLFgTeZ" resname="comments.edit">
+        <source>comments.edit</source>
+        <target>Modifier le commentaire</target>
+      </trans-unit>
+      <trans-unit id="GQDqtsA" resname="profile">
+        <source>profile</source>
+        <target>Profil</target>
+      </trans-unit>
+      <trans-unit id="f5NGhoD" resname="please sign in">
+        <source>please sign in</source>
+        <target>Veuillez vous connecter</target>
+      </trans-unit>
+      <trans-unit id="foGmrel" resname="sign.in">
+        <source>sign.in</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="0tp0Ujd" resname="sign.up">
+        <source>sign.up</source>
+        <target>S'inscrire</target>
+      </trans-unit>
+      <trans-unit id="l_5Gv5A" resname="sign.out">
+        <source>sign.out</source>
+        <target>Se déconnecter</target>
+      </trans-unit>
+      <trans-unit id="Oo9T7Be" resname="forget password">
+        <source>forget password</source>
+        <target>Mot de passe oublié</target>
+      </trans-unit>
+      <trans-unit id="XmxG0pB" resname="remember me">
+        <source>remember me</source>
+        <target>Se souvenir de moi</target>
+      </trans-unit>
+      <trans-unit id="lNXJ2WA" resname="agree">
+        <source>agree</source>
+        <target>J'accepte les conditions d'utilisation</target>
+      </trans-unit>
+      <trans-unit id="_bbVkKl" resname="home.welcome">
+        <source>home.welcome</source>
+        <target>L'histoire du snowboard Le premier “snurfer”, l’ancêtre du snowboard a été inventé en 1965 par un Américain qui eut l'idée de rassembler deux skis par une corde à l’avant (fou non ?!). La principale caractéristique qui différencie le snurfer du snowboard est le fait que les pieds n’étaient pas attachés à la planche.</target>
+      </trans-unit>
+      <trans-unit id="_wzw3d7" resname="image.change">
+        <source>image.change</source>
+        <target>Changer d'image</target>
+      </trans-unit>
+      <trans-unit id="ozapJ3G" resname="image.none">
+        <source>image.none</source>
+        <target>Aucune image disponible</target>
+      </trans-unit>
+      <trans-unit id="8kONV0R" resname="image.deleted">
+        <source>image.deleted</source>
+        <target>Image supprimée</target>
+      </trans-unit>
+      <trans-unit id="hJ.35Od" resname="created.at">
+        <source>created.at</source>
+        <target>Créé</target>
+      </trans-unit>
+      <trans-unit id="wmGH_e9" resname="created.the">
+        <source>created.the</source>
+        <target>Créé le</target>
+      </trans-unit>
+      <trans-unit id="i39dFV7" resname="created.by">
+        <source>created.by</source>
+        <target>Créé par</target>
+      </trans-unit>
+      <trans-unit id="WGTW1SP" resname="modified.at">
+        <source>modified.at</source>
+        <target>Modifié</target>
+      </trans-unit>
+      <trans-unit id="cYqPzft" resname="modified.the">
+        <source>modified.the</source>
+        <target>Modifié le</target>
+      </trans-unit>
+      <trans-unit id="daC_sds" resname="modified.by">
+        <source>modified.by</source>
+        <target>Modifié par</target>
+      </trans-unit>
+      <trans-unit id="xp8mj7Q" resname="user.name">
+        <source>user.name</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="nrooHpB" resname="user.user">
+        <source>user.user</source>
+        <target>Utilisateur</target>
+      </trans-unit>
+      <trans-unit id="i9JZBdH" resname="user.registered">
+        <source>user.registered</source>
+        <target>Inscrit</target>
+      </trans-unit>
+      <trans-unit id="guJyZ6j" resname="user.verified">
+        <source>user.verified</source>
+        <target>Vérifié</target>
+      </trans-unit>
+      <trans-unit id="gqNTf.D" resname="name">
+        <source>name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="giREF.l" resname="email">
+        <source>email</source>
+        <target>Adresse email</target>
+      </trans-unit>
+      <trans-unit id="XohImNo" resname="password">
+        <source>password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="mC2ePrm" resname="text">
+        <source>text</source>
+        <target>Texte</target>
+      </trans-unit>
+      <trans-unit id="inmIkP6" resname="yes">
+        <source>yes</source>
+        <target>Oui</target>
+      </trans-unit>
+      <trans-unit id="k5Apjz_" resname="no">
+        <source>no</source>
+        <target>Non</target>
+      </trans-unit>
+      <trans-unit id="51qigQp" resname="actions.actions">
+        <source>actions.actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="yCtaGBf" resname="actions.show">
+        <source>actions.show</source>
+        <target>Afficher</target>
+      </trans-unit>
+      <trans-unit id="2s9r0ZQ" resname="actions.edit">
+        <source>actions.edit</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit id="Jx1UbvO" resname="actions.delete">
+        <source>actions.delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="ky4g6.O" resname="actions.create">
+        <source>actions.create</source>
+        <target>Créer</target>
+      </trans-unit>
+      <trans-unit id="n.9eLKE" resname="actions.update">
+        <source>actions.update</source>
+        <target>Mettre à jour</target>
+      </trans-unit>
+      <trans-unit id="uoASMGu" resname="actions.send.email">
+        <source>actions.send.email</source>
+        <target>Envoyer l'email</target>
+      </trans-unit>
+      <trans-unit id="rHE0FDb" resname="email.sent">
+        <source>email.sent</source>
+        <target>Email envoyé</target>
+      </trans-unit>
+      <trans-unit id="rRWZNxs" resname="delete.confirm">
+        <source>delete.confirm</source>
+        <target>Êtes-vous sûr de vouloir supprimer cet élément ?</target>
+      </trans-unit>
+      <trans-unit id="2BGUs5t" resname="back.to.list">
+        <source>back.to.list</source>
+        <target>Retour à la liste</target>
+      </trans-unit>
+      <trans-unit id="ruQIhH0" resname="success">
+        <source>success</source>
+        <target>Succès</target>
+      </trans-unit>
+      <trans-unit id="Bicbr0l" resname="info">
+        <source>info</source>
+        <target>Information</target>
+      </trans-unit>
+      <trans-unit id="S9k1S7Z" resname="warning">
+        <source>warning</source>
+        <target>Attention</target>
+      </trans-unit>
+      <trans-unit id="Ej.WZqo" resname="danger">
+        <source>danger</source>
+        <target>Danger</target>
+      </trans-unit>
+      <trans-unit id="ZmH_bqK" resname="account.created">
+        <source>account.created</source>
+        <target>Votre compte a été créé avec succès. Veuillez vérifier votre boîte de réception pour confirmer votre adresse email.</target>
+      </trans-unit>
+      <trans-unit id="pXsIRZX" resname="account.verified">
+        <source>account.verified</source>
+        <target>Votre compte a été vérifié avec succès.</target>
+      </trans-unit>
+      <trans-unit id="vvixvY0" resname="passwords.reset">
+        <source>passwords.reset</source>
+        <target>Votre mot de passe a été réinitialisé avec succès.</target>
+      </trans-unit>
+      <trans-unit id="DC6X9S8" resname="passwords.changed">
+        <source>passwords.changed</source>
+        <target>Votre mot de passe a été modifié avec succès.</target>
+      </trans-unit>
+      <trans-unit id="a7LVa18" resname="passwords.to.reset">
+        <source>passwords.to.reset</source>
+        <target>Réinitialisez votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="MbhTVRT" resname="passwords.reset.message">
+        <source>passwords.reset.message</source>
+        <target>Entrez votre adresse email et vous recevrez un email contenant un lien pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="77UucXK" resname="Theme">
+        <source>Theme</source>
+        <target>Thème</target>
+      </trans-unit>
+      <trans-unit id="vn4vIBK" resname="Images">
+        <source>Images</source>
+        <target>Images</target>
+      </trans-unit>
+      <trans-unit id="cZiMTY4" resname="Text">
+        <source>Text</source>
+        <target>Texte</target>
+      </trans-unit>
+      <trans-unit id="d1tb_WR" resname="Created at">
+        <source>Created at</source>
+        <target>Créé le</target>
+      </trans-unit>
+      <trans-unit id="zDyVxr6" resname="Modified at">
+        <source>Modified at</source>
+        <target>Modifié le</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Adresse email</target>
+      </trans-unit>
+      <trans-unit id="47ienTP" resname="Username">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="nFZcYCx" resname="reset.sent.message">
+        <source>reset.sent.message</source>
+        <target>Si un compte correspondant à votre adresse email existe, alors un email a été envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="hueLJb2" resname="link.expire">
+        <source>link.expire</source>
+        <target>Ce lien expire dans</target>
+      </trans-unit>
+      <trans-unit id="BXxgA6e" resname="check spam">
+        <source>check spam</source>
+        <target>Si vous ne recevez pas d'email dans les prochaines minutes, vérifiez votre dossier spam ou</target>
+      </trans-unit>
+      <trans-unit id="W13t7jL" resname="try again">
+        <source>try again</source>
+        <target>essayez à nouveau</target>
+      </trans-unit>
+      <trans-unit id="6GKWFos" resname="back.home">
+        <source>back.home</source>
+        <target>Retour à l'accueil</target>
+      </trans-unit>
+      <trans-unit id="HGMzUJ3" resname="show">
+        <source>show</source>
+        <target>__show</target>
+      </trans-unit>
+      <trans-unit id="JiEhxTc" resname="edit">
+        <source>edit</source>
+        <target>__edit</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

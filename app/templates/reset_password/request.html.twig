@@ -4,7 +4,8 @@
 	{{ encore_entry_link_tags('auth') }}
 {% endblock %}
 
-{% block title %}Reset your password
+{% block title %}
+	{{'passwords.to.reset'|trans}}
 {% endblock %}
 
 {% block body %}
@@ -15,23 +16,23 @@
 	<div class="mainblock text-center">
 		<main class="form-signin">
 			{{ form_start(requestForm) }}
-			<h1 class="h3 mb-3 fw-normal">Reset your password</h1>
+			<h1 class="h3 mb-3 fw-normal">{{'passwords.to.reset'|trans}}</h1>
 
 			<div class="form-floating my-1">
-				{{ form_widget(requestForm.email) }}
-				{{ form_label(requestForm.email) }}
+				{{ form_widget(requestForm.username) }}
+				{{ form_label(requestForm.username) }}
 				<div class="text-danger">
-					{{ form_errors(requestForm.email) }}
+					{{ form_errors(requestForm.username) }}
 				</div>
 			</div>
 
 			<div class="my-5">
 				<small>
-					Enter your email address and we will send you a link to reset your password.
+					{{'passwords.reset.message'|trans}}
 				</small>
 			</div>
 
-			<button class="w-100 btn btn-lg btn-primary" type="submit">Send password reset email</button>
+			<button class="w-100 btn btn-lg btn-primary" type="submit">{{'actions.send.email'|trans}}</button>
 			{{ form_end(requestForm) }}
 		</main>
 	</div>

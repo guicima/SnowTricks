@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Trick
+{% endblock %}
+
+{% block body %}
+	<div class="position-relative overflow-hidden p-3 p-md-5  text-center bg-light">
+		<div class="col-md-5 p-lg-5 mx-auto my-5" style="z-index: 1;position: relative;">
+			<h1 class="display-4 fw-normal">{{ trick.name }}</h1>
+			<p class="lead fw-normal">{{ trick.description|length > 70 ? trick.description|slice(0, 70) ~ '...' : trick.description }}</p>
+			{# <a class="btn btn-outline-secondary" href="#">Coming soon</a> #}
+		</div>
+		<img src="{{ trick.images|filter(image => image.type == 'image') is empty ? asset('/images/placeholder.jpg') : asset('/uploads/images/' ~ trick.images|filter(image => image.type == 'image')|first.name) }}" style="position: absolute;left: 0;top: 0;width: 100%;transform: translateY(-50%); opacity: .5"></img>
+	{# <div class="product-device shadow-sm d-none d-md-block"></div>
+																																																																																			<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div> #}
+	{% if is_granted('ROLE_USER') %}
+		<div class="position-absolute top-0 end-0 p-3" style="z-index: 2;">
+			<form method="post" action="{{ path('app_trick_delete', {'slug': trick.slug}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}">
+				<div class="btn-group">
+					<a type="button" class="btn btn-sm btn-warning" href="{{ path('app_trick_edit', {'slug': trick.slug}) }}">
+						<i class="fa-solid fa-pen-to-square"></i>
+					</a>
+					<button class="btn btn-sm btn-danger">
+						<i class="fa-solid fa-trash-can"></i>
+					</button>
+				</div>
+			</form>
+		</div>
+	{% endif %}
+	<div class="position-absolute top-0 start-0 p-3" style="z-index: 2;">
+		<a type="button" class="btn btn-sm btn-secondary" href="{{ path('app_home_page') }}">
+			<i class="fa-solid fa-angles-left"></i>
+		</a>
+	</div>
+</div>
+
+<div class="d-flex flex-nowrap justify-content-center overflow-auto">
+	{% for image in trick.getImages %}
+		<div class="card m-3 " style="width: 150px; height: 150px; display: block;">
+			{% if image.type is same as 'video' %}
+
+				<video controls width="250" height="150" class="card-img">
+					<source src="{{asset('/uploads/images/' ~ image.name) }}" type="video/mp4">
+				</video>
+
+			{% elseif image.type is same as 'video_url' %}
+
+				<iframe class="card-img" width="250" height="150" src="{{ image.name }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+			{% else %}
+				<div style="background: center / cover no-repeat url('{{asset('/uploads/images/' ~ image.name) }}'); height: 100%; width: 100%;"></div>
+			{% endif %}
+
+		</div>
+	{% else %}
+		<p class="text-center m-5">{{ 'image.none'|trans }}</p>
+	{% endfor %}
+</div>
+
+<div class="p-5">
+	<p class="lead text-center">{{ trick.description }}</p>
+</div>
+
+<div class="p-5 d-flex justify-content-center">
+	<p class="badge rounded-pill bg-secondary mx-3">{{ trick.theme }}</p>
+	<p class="badge rounded-pill bg-secondary mx-3">{{ 'created.at'|trans }}
+		{{ trick.createdAt.locale(app.request.getLocale()).diffForHumans() }}</p>
+	<p class="badge rounded-pill bg-secondary mx-3">{{ 'modified.at'|trans }}
+		{{ trick.modifiedAt.locale(app.request.getLocale()).diffForHumans() }}</p>
+</div>
+
+<div class="container mt-5 mb-5">
+	<div class="d-flex justify-content-center row">
+		<div class="d-flex flex-column col-md-8">
+			<hr>
+			<div class="coment-bottom bg-white p-2 px-4">
+				{% if is_granted('ROLE_USER') %}
+					<form action="{{ path('app_trick_show', {'slug': trick.slug}) }}" method="post">
+						<div class="d-flex flex-row add-comment-section mt-4 mb-4"><img class="img-fluid img-responsive rounded-circle me-2" src="{{ app.user.imageUrl is null ? asset('/images/placeholder.jpg') : asset('/uploads/images/' ~ app.user.imageUrl)}}" width="38"><input type="text" class="form-control me-3" placeholder="{{ 'comments.add'|trans }}" name="text" required="required"><button class="btn btn-primary" type="submit">{{ 'comments.toComment'|trans }}</button>
+						</div>
+					</form>
+				{% endif %}
+				{% for comment in comments %}
+					<div class="d-flex flex-row comment-section mt-4 mb-4">
+						<div class="d-flex flex-row align-items-center me-2">
+							<img class="img-fluid img-responsive rounded-circle" src="{{ comment.getUserId().getImageUrl is null ? asset('/images/placeholder.jpg') : asset('/uploads/images/' ~ comment.getUserId().getImageUrl() )}}" width="38" height="38" style="width: 38px; height: 38px;">
+						</div>
+						<div class="commented-section">
+							<div class="d-flex flex-row align-items-center commented-user">
+								<h5 class="me-2">{{comment.getUserId().username }}</h5>
+								<span class="dot mb-1"></span>
+								<span class="mb-1 ms-2">{{ comment.createdAt.locale(app.request.getLocale()).diffForHumans() }}</span>
+							</div>
+							<div class="comment-text-sm">
+								<span>{{ comment.text }}</span>
+							</div>
+						</div>
+					</div>
+				{% else %}
+					<p class="text-center">{{ 'comments.none'|trans }}</p>
+				{% endfor %}
+				{{ knp_pagination_render(comments) }}
+
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

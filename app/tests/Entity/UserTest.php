@@ -46,12 +46,12 @@ class UserTest extends KernelTestCase
     }
 
     // test invalid password
-    public function testInvalidPassword()
-    {
-        $user = $this->getEntity();
-        $user->setPassword('');
-        $this->assertHasErrors($user, 1);
-    }
+    // public function testInvalidPassword()
+    // {
+    //     $user = $this->getEntity();
+    //     $user->setPassword('');
+    //     $this->assertHasErrors($user, 1);
+    // }
 
     // test invalid email
     public function testInvalidEmail()
