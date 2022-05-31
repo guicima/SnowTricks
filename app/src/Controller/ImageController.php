@@ -9,6 +9,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ImageController extends AbstractController
 {
@@ -21,7 +22,7 @@ class ImageController extends AbstractController
     // }
 
     #[Route('/image/{id}', name: 'app_image_delete', methods: ['POST'])]
-    public function delete(Request $request, Image $image, ImageRepository $imageRepository): Response
+    public function delete(Request $request, Image $image, ImageRepository $imageRepository, TranslatorInterface $translator): Response
     {
         // if user is not connected, redirect to login page
         if (!$this->getUser()) {
@@ -38,8 +39,8 @@ class ImageController extends AbstractController
         }
 
         $this->addFlash(
-            'Success',
-            'Image deleted!'
+            'success',
+            $translator->trans('image.deleted'),
         );
 
         return $this->redirectToRoute('app_trick_edit', ["slug" => $trick->getSlug()], Response::HTTP_SEE_OTHER);

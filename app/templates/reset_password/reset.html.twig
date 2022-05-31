@@ -4,7 +4,8 @@
 	{{ encore_entry_link_tags('auth') }}
 {% endblock %}
 
-{% block title %}Reset your password
+{% block title %}
+	{{'passwords.to.reset'|trans}}
 {% endblock %}
 
 {% block body %}
@@ -14,7 +15,7 @@
 		<main class="form-signin">
 			{{ form_start(resetForm) }}
 
-			<h1 class="h3 mb-3 fw-normal">Reset your password</h1>
+			<h1 class="h3 mb-3 fw-normal">{{'passwords.to.reset'|trans}}</h1>
 
 			{{ form_row(resetForm.plainPassword) }}
 
@@ -24,7 +25,7 @@
 
 
 			<button class="w-100 btn btn-lg btn-primary" type="submit">
-				Reset password</button>
+				{{'passwords.to.reset'|trans}}</button>
 			{{ form_end(resetForm) }}
 		</main>
 	</div>

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Trick;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -44,6 +45,12 @@ class TrickType extends AbstractType
                 //     ]),
 
                 // ],
+            ])
+            ->add('video', UrlType::class, [
+                'attr' => ['class' => 'form-control'],
+                'row_attr' => ['class' => 'm-2'],
+                'mapped' => false,
+                'required' => false,
             ])
             // ->add('modifiedAt')
             // ->add('createdAt')

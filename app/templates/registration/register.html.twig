@@ -18,7 +18,7 @@
 			{{ form_start(registrationForm) }}
 
 			{# <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> #}
-			<h1 class="h3 mb-3 fw-normal">Register</h1>
+			<h1 class="h3 mb-3 fw-normal">{{'sign.up'|trans}}</h1>
 
 			<div class="form-floating my-1">
 				{{ form_widget(registrationForm.email) }}
@@ -45,12 +45,12 @@
 			<div class="checkbox mt-5 mb-3">
 				<label>
 					{{ form_widget(registrationForm.agreeTerms) }}
-					Agree terms
+					{{'agree'|trans}}
 				</label>
 			</div>
 
 			<button class="w-100 btn btn-lg btn-primary" type="submit">
-				Register</button>
+				{{'sign.up'|trans}}</button>
 			{{ form_end(registrationForm) }}
 		</main>
 	</div>

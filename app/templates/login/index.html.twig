@@ -19,20 +19,20 @@
 			<form
 				action="{{ path('app_login') }}" method="post">
 				{# <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> #}
-				<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+				<h1 class="h3 mb-3 fw-normal">{{'please sign in'|trans}}</h1>
 
 				<div class="form-floating">
-					<input type="email" class="form-control" id="floatingInput" name="_username" value="{{ last_username }}" placeholder="name@example.com">
-					<label for="floatingInput">Email address</label>
+					<input type="text" class="form-control" id="floatingInput" name="_username" value="{{ last_username }}" placeholder="{{'user.name'|trans}}">
+					<label for="floatingInput">{{'user.name'|trans}}</label>
 				</div>
 				<div class="form-floating">
-					<input type="password" class="form-control" id="floatingPassword" name="_password" placeholder="Password">
-					<label for="floatingPassword">Password</label>
+					<input type="password" class="form-control" id="floatingPassword" name="_password" placeholder="{{'password'|trans}}">
+					<label for="floatingPassword">{{'password'|trans}}</label>
 				</div>
 
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-				<a href="{{ path('app_forgot_password_request') }}" class="text-muted">Forget password ?</a>
+				<a href="{{ path('app_forgot_password_request') }}" class="text-muted">{{'forget password'|trans}}</a>
 
 				{# If you want to control the URL the user is redirected to on success #}
 				{# <input type="hidden" name="_target_path" value="/account"/> #}
@@ -40,10 +40,10 @@
 				<div class="checkbox mt-5 mb-3">
 					<label>
 						<input type="checkbox" value="remember-me">
-						Remember me
+						{{'remember me'|trans}}
 					</label>
 				</div>
-				<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+				<button class="w-100 btn btn-lg btn-primary" type="submit">{{ 'sign.in'|trans }}</button>
 			</form>
 		</main>
 	</div>

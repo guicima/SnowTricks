@@ -7,15 +7,15 @@
 
 	<main>
 		<div class="px-4 py-5 my-5 text-center">
-			<h1 class="display-5 fw-bold">Email sent</h1>
+			<h1 class="display-5 fw-bold">{{'email.sent'|trans}}</h1>
 			<div class="col-lg-6 mx-auto">
-				<p class="lead mb-2">If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
-																				        This link will expire in
+				<p class="lead mb-2">{{'reset.sent.message'|trans}}
+					{{'link.expire'|trans}}
 					{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
-				<p class="lead mb-4">If you don't receive an email please check your spam folder or
-					<a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+				<p class="lead mb-4">{{'check spam'|trans}}
+					<a href="{{ path('app_forgot_password_request') }}">{{'try again'|trans}}</a>.</p>
 				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-					<a href="{{ path('app_home_page') }}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Back to home</a>
+					<a href="{{ path('app_home_page') }}" type="button" class="btn btn-primary btn-lg px-4 gap-3">{{'back.home'|trans}}</a>
 				</div>
 			</div>
 		</div>

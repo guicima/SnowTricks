@@ -19,7 +19,7 @@ class Trick
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, unique: true)]
     #[Assert\NotBlank(message: 'Please enter a name.')] // uniqueness: true
     private $name;
 
@@ -45,9 +45,13 @@ class Trick
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
 
+    #[ORM\OneToMany(mappedBy: 'trickId', targetEntity: Comment::class, orphanRemoval: true)]
+    private $comments;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -155,6 +159,36 @@ class Trick
     {
         $slugger = new AsciiSlugger();
         $this->slug = $slugger->slug($this->name);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setTrickId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getTrickId() === $this) {
+                $comment->setTrickId(null);
+            }
+        }
 
         return $this;
     }
