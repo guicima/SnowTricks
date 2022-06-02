@@ -114,12 +114,12 @@ class TrickController extends AbstractController
                 $comment->setText($data['text']);
                 $commentRepository->add($comment);
                 return $this->redirectToRoute('app_trick_show', ['slug' => $trick->getSlug()], Response::HTTP_SEE_OTHER);
-            } else {
-                $this->addFlash(
-                    'danger',
-                    $errors->get(0)->getMessage()
-                );
             }
+
+            $this->addFlash(
+                'danger',
+                $errors->get(0)->getMessage()
+            );
         }
 
 
